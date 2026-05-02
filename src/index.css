@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Burgundy Intelligence Co-Pilot — Design System
+   Ultra-premium private banking aesthetic.
+   All colors HSL.
+*/
+
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 215 55% 10%;          /* #0A1628 deep navy */
+    --foreground: 0 0% 100%;            /* white */
+
+    --surface: 217 47% 16%;             /* #112240 card */
+    --surface-elevated: 217 47% 19%;
+    --surface-foreground: 0 0% 100%;
+
+    --card: 217 47% 16%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 217 47% 16%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 44 53% 54%;              /* #C9A84C burgundy gold */
+    --primary-foreground: 215 55% 10%;
+
+    --gold: 44 53% 54%;
+    --gold-soft: 44 53% 64%;
+    --gold-deep: 40 50% 42%;
+
+    --secondary: 217 47% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 217 40% 20%;
+    --muted-foreground: 215 20% 70%;    /* #94A3B8 */
+
+    --accent: 217 47% 22%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;           /* #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;             /* #10B981 */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;              /* #F59E0B */
+    --warning-foreground: 215 55% 10%;
+
+    --border: 213 51% 24%;              /* #1E3A5F */
+    --border-strong: 213 45% 32%;
+    --input: 213 51% 24%;
+    --ring: 44 53% 54%;
+
+    --radius: 0.75rem;                  /* 12px cards */
+    --radius-btn: 0.5rem;                /* 8px buttons */
+
+    /* Sidebar */
+    --sidebar-background: 216 55% 8%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 44 53% 54%;
+    --sidebar-primary-foreground: 215 55% 10%;
+    --sidebar-accent: 217 47% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 213 51% 18%;
+    --sidebar-ring: 44 53% 54%;
+
+    /* Gradients & effects */
+    --gradient-gold: linear-gradient(135deg, hsl(44 60% 58%), hsl(40 50% 42%));
+    --gradient-surface: linear-gradient(180deg, hsl(217 47% 17%), hsl(217 47% 14%));
+    --gradient-hero: radial-gradient(ellipse at top left, hsl(217 50% 18%), hsl(215 55% 10%) 60%);
+
+    --shadow-card: 0 1px 0 0 hsl(213 51% 30% / 0.4) inset, 0 8px 24px -12px hsl(0 0% 0% / 0.5);
+    --shadow-gold: 0 0 0 1px hsl(44 53% 54% / 0.25), 0 8px 32px -8px hsl(44 53% 54% / 0.3);
+    --shadow-elevated: 0 20px 40px -16px hsl(0 0% 0% / 0.6);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body, #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    background:
+      radial-gradient(1200px 600px at 0% 0%, hsl(217 50% 14% / 0.6), transparent 60%),
+      radial-gradient(900px 500px at 100% 100%, hsl(217 47% 14% / 0.4), transparent 60%),
+      hsl(var(--background));
+    min-width: 1280px;
+  }
+
+  /* Numerals with tabular alignment for finance figures */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-xl border bg-[hsl(var(--surface))];
+    background-image: var(--gradient-surface);
+    box-shadow: var(--shadow-card);
+  }
+
+  .gold-text {
+    color: hsl(var(--gold));
+  }
+
+  .gold-border-top {
+    border-top: 2px solid hsl(var(--gold));
+  }
+
+  .hairline {
+    border-color: hsl(var(--border));
+  }
+
+  /* Subtle scrollbar */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 8px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--border-strong)); }
+}
